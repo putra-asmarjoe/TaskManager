@@ -2,20 +2,22 @@
 ## Overview
 The Task Manager API is a RESTful API that allows users to register, login, and manage tasks.
  
-## Create New User- Endpoint: http://127.0.0.1:5000/register
+## Create New User
+- Endpoint: http://127.0.0.1:5000/register
 - Method: POST
 - Headers:
 
 'Content-Type': 'application/json'
 
 - **Parameters**:
-
+```json
 {
   "username": "joe",
   "email": "joe@taskmanager.com",
   "password": "Password123",
   "userrole": "admin"
 }
+```
 
 - **Response**:
 ```json
@@ -24,7 +26,20 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
-** API to Login- Endpoint**: http://127.0.0.1:5000/login
+- Sample Request:
+```bash
+curl -X POST http://127.0.0.1:5000/register \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "joe",
+  "email": "joe@taskmanager.com",
+  "password": "Password123",
+  "userrole": "admin"
+}'
+```
+
+## API to Login
+- Endpoint: http://127.0.0.1:5000/login
 - Method: POST
 - Headers:
 
@@ -46,7 +61,19 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
-## API to Validate JWT Token- Endpoint: http://127.0.0.1:5000/validate-token
+- Sample Request:
+```bash
+curl -X POST http://127.0.0.1:5000/login \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "joe",
+  "password": "Password123"
+}'
+```
+
+
+## API to Validate JWT Token
+- Endpoint: http://127.0.0.1:5000/validate-token
 - Method: POST
 - Headers:
 
@@ -60,7 +87,16 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
-## API to Get List of Tasks- Endpoint: http://127.0.0.1:5000/tasks
+- Sample Request:
+```bash
+curl -X POST http://127.0.0.1:5000/validate-token \
+-H "Authorization: Bearer <jwttoken>" \
+-H "Content-Type: application/json"
+```
+
+
+## API to Get List of Tasks
+- Endpoint: http://127.0.0.1:5000/tasks
 - Method: GET
 - Headers:
 
@@ -94,7 +130,15 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 ]
 ```
 
-## API to Create New Task- Endpoint: http://127.0.0.1:5000/tasks
+- Sample Request:
+```bash
+curl -X GET http://127.0.0.1:5000/tasks \
+-H "Authorization: Bearer <jwttoken>"
+```
+
+
+## API to Create New Task
+- Endpoint: http://127.0.0.1:5000/tasks
 - Method: POST
 - Headers:
 
@@ -125,7 +169,20 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
-## API to Update Task by Task ID- Endpoint: http://127.0.0.1:5000/tasks/3
+- Sample Request:
+```bash
+curl -X POST http://127.0.0.1:5000/tasks \
+-H "Authorization: Bearer <jwttoken>" \
+-H "Content-Type: application/json" \
+-d '{
+  "title": "Task 3",
+  "description": "Install Frontend App.",
+  "status_id": 0
+}'
+```
+
+## API to Update Task by Task ID
+- Endpoint: http://127.0.0.1:5000/tasks/3
 - Method: PUT
 - Headers:
 
@@ -142,9 +199,9 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
-```json
 - **Response**:
 
+```json
 {
   "description": "Install Frontend App.",
   "id": 3,
@@ -153,8 +210,21 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 }
 ```
 
+- Sample Request:
+```bash
+curl -X PUT http://127.0.0.1:5000/tasks/3 \
+-H "Authorization: Bearer <jwttoken>" \
+-H "Content-Type: application/json" \
+-d '{
+  "title": "Complete Project Proposal 1",
+  "status_id": 100,
+  "description": "Install Frontend App.",
+  "id": 3
+}'
+```
 
-## API to Delete Task by Task ID -Endpoint: http://127.0.0.1:5000/tasks/3
+## API to Delete Task by Task ID 
+- Endpoint: http://127.0.0.1:5000/tasks/3
 - Method: DELETE
 - Headers:
 
