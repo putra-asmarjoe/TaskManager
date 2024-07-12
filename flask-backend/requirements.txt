@@ -5,7 +5,6 @@ Flask-Bcrypt
 flask-bcrypt
 Flask-Limiter
 Flask-Migrate 
-Werkzeugg
 marshmallow
 python-dotenv
 flask-cors
