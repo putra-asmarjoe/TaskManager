@@ -8,4 +8,5 @@ Werkzeugg
 marshmallow
 python-dotenv
 flask-cors
+flask-bcrypt
 gunicorn
