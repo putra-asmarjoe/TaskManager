@@ -27,8 +27,9 @@ This project is a task management application that allows users to create, read,
 - Python
 - Flask
 - SQLite or PostgreSQL
-- SQLAlchemy (optional)
+- SQLAlchemy
 - Flask-JWT-Extended (for authentication)
+- Rate Limiter
 
 ## Setup Instructions
 
@@ -56,7 +57,7 @@ This project is a task management application that allows users to create, read,
     pip3 install -r requirements.txt
     ```
 
-4. Create a `.env` file in the `backend` directory and add the following:
+4. Create a `.env` file in the `flask-backend` directory and add the following:
     ```bash
     touch .env
     ```
@@ -73,22 +74,8 @@ This project is a task management application that allows users to create, read,
     ```bash
     python3 app.py
     ```
-6. Register New User 
-
-- **URL**: `http://127.0.0.1:5000/register`
-- **Method**: `POST`
-- **Content-Type**: `application/json`
- 
-
-```json
-{
-  "username": "joe",
-  "email": "joe@taskmanager.com",
-  "password": "Password123",
-  "userrole": "admin"
-}
-```
-
+6. Register New User  
+```bash
 curl -X POST http://127.0.0.1:5000/register \
 -H "Content-Type: application/json" \
 -d '{
@@ -98,6 +85,7 @@ curl -X POST http://127.0.0.1:5000/register \
   "userrole": "admin"
 }'
 
+```
 **Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
 
 ### Frontend Setup
