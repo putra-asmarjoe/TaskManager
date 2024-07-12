@@ -71,11 +71,33 @@ This project is a task management application that allows users to create, read,
     ```
 
 
-5. Start the Flask server:
+5. Start the server:
     ```bash
-    flask run
+    python3 app.py
     ```
+6. Register New User 
+For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
+- **URL**: `http://127.0.0.1:5000/register`
+- **Method**: `POST`
+- **Content-Type**: `application/json`
+ 
 
+```json
+{
+  "username": "joe",
+  "email": "joe@taskmanager.com",
+  "password": "Password123",
+  "userrole": "admin"
+}
+
+curl -X POST http://127.0.0.1:5000/register \
+-H "Content-Type: application/json" \
+-d '{
+  "username": "joe",
+  "email": "joe@taskmanager.com",
+  "password": "Password123",
+  "userrole": "admin"
+}'
 
 ### Frontend Setup
 
@@ -92,7 +114,7 @@ This project is a task management application that allows users to create, read,
 
 3. Create a `.env` file in the `react-frontend` directory and add the following:
     ```env
-    REACT_APP_API_URL=http://localhost:5000/
+    echo REACT_APP_API_URL=http://localhost:5000/ > .env
     ```
 
 4. Start the React application:
@@ -125,6 +147,7 @@ Once both the frontend and backend servers are running, you can access the appli
 - Implement input validation to prevent SQL injection and other attacks.
 - Use environment variables to securely manage sensitive data.
 - Implement authentication and authorization using JWT.
+- Implement rate limiting to protect the API from abuse and ensure fair usage.
 
 ## License
 
