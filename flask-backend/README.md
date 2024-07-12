@@ -6,8 +6,9 @@ The Task Manager API is a RESTful API that allows users to register, login, and 
 - Endpoint: http://127.0.0.1:5000/register
 - Method: POST
 - Headers:
-
+```
 'Content-Type': 'application/json'
+```
 
 - **Parameters**:
 ```json
@@ -42,8 +43,9 @@ curl -X POST http://127.0.0.1:5000/register \
 - Endpoint: http://127.0.0.1:5000/login
 - Method: POST
 - Headers:
-
+```
 'Content-Type': 'application/json'
+```
 
 - **Parameters**:
 
@@ -76,9 +78,10 @@ curl -X POST http://127.0.0.1:5000/login \
 - Endpoint: http://127.0.0.1:5000/validate-token
 - Method: POST
 - Headers:
-
+```
 'Authorization': 'Bearer jwttoken',
 'Content-Type': 'application/json'
+```
 
 - **Response**:
 ```json
@@ -99,8 +102,9 @@ curl -X POST http://127.0.0.1:5000/validate-token \
 - Endpoint: http://127.0.0.1:5000/tasks
 - Method: GET
 - Headers:
-
+```
 'Authorization': 'Bearer jwttoken'
+```
 
 - **Response**:
 ```json
@@ -141,9 +145,10 @@ curl -X GET http://127.0.0.1:5000/tasks \
 - Endpoint: http://127.0.0.1:5000/tasks
 - Method: POST
 - Headers:
-
+```
 'Authorization': 'Bearer jwttoken',
 'Content-Type': 'application/json'
+```
 
 - **Parameters**:
 ```json
@@ -185,9 +190,10 @@ curl -X POST http://127.0.0.1:5000/tasks \
 - Endpoint: http://127.0.0.1:5000/tasks/3
 - Method: PUT
 - Headers:
-
+```
 'Authorization': 'Bearer jwttoken',
 'Content-Type': 'application/json'
+```
 
 - **Parameters**:
 ```json
@@ -227,8 +233,9 @@ curl -X PUT http://127.0.0.1:5000/tasks/3 \
 - Endpoint: http://127.0.0.1:5000/tasks/3
 - Method: DELETE
 - Headers:
-
+```
 'Authorization': 'Bearer jwttoken'
+```
 
 - Response:
 ```json
