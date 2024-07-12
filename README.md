@@ -31,8 +31,18 @@ This project is a task management application that allows users to create, read,
 - Flask-JWT-Extended (for authentication)
 - Rate Limiter
 
-## K8s Setup Instructions
-
+## Containerize Setup Instructions
+### Build Backend Image and Run Server Image
+ ```bash
+ docker build --no-cache -t taskmanager-backend flask-backend/.
+ docker run -d -p 5000:5000 --name flask-backend-container taskmanager-backend
+ ```
+    
+### Build Frontend Image and Run Server Image
+ ```bash
+ docker build --no-cache -t taskmanager-frontend react-frontend/.
+ docker run -d -p 3000:80 --name taskmanager-frontend-container taskmanager-frontend
+ ```
 
 ## Manual Setup Instructions
 
@@ -86,18 +96,6 @@ This project is a task management application that allows users to create, read,
     ```bash
     gunicorn --bin 0.0.0.0:5000 app:app
     ```
-7. Register New User  
-    ```bash
-    curl -X POST http://127.0.0.1:5000/register \
-    -H "Content-Type: application/json" \
-    -d '{
-      "username": "joe",
-      "email": "joe@taskmanager.com",
-      "password": "Password123",
-      "userrole": "admin"
-    }'
-    ```
-####    **Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
 
 ### Frontend Setup
 
@@ -122,9 +120,22 @@ This project is a task management application that allows users to create, read,
     npm start
     ```
     
-### Usage
+## Usage
 
-Once both the frontend and backend servers are running, you can access the application at `http://localhost:3000`.
+1. Register New User  
+    ```bash
+    curl -X POST http://127.0.0.1:5000/register \
+    -H "Content-Type: application/json" \
+    -d '{
+      "username": "joe",
+      "email": "joe@taskmanager.com",
+      "password": "Password123",
+      "userrole": "admin"
+    }'
+    ```
+####    **Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
+
+2. Once both the frontend and backend servers are running, you can access the application at `http://localhost:3000`.
 
 ## Performance Optimization
 

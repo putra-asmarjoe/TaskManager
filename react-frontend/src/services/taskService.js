@@ -1,5 +1,4 @@
-const BASE_URL = process.env.REACT_APP_API_URL;;
-console.log('BASE_URL:', process.env.REACT_APP_API_URL); // Tambahkan ini untuk debugging
+const BASE_URL = process.env.REACT_APP_API_URL;
 
 const getToken = () => {
   return localStorage.getItem('token');
