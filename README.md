@@ -89,6 +89,7 @@ For more details about the backend, please follow this link: https://github.com/
   "password": "Password123",
   "userrole": "admin"
 }
+```
 
 curl -X POST http://127.0.0.1:5000/register \
 -H "Content-Type: application/json" \
