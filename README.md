@@ -77,7 +77,7 @@ This project is a task management application that allows users to create, read,
     ```
 6. Register New User 
 
-**Note**For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
+**Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
 
 - **URL**: `http://127.0.0.1:5000/register`
 - **Method**: `POST`
