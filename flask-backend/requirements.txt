@@ -4,6 +4,7 @@ Flask-JWT-Extended
 Flask-Bcrypt
 Flask-Limiter
 Flask-Migrate 
+Werkzeug<1
 marshmallow
 python-dotenv
 flask-cors

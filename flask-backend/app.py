@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
-from flask_bcrypt import Bcrypt
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from config import Config
@@ -13,7 +12,6 @@ app = Flask(__name__)
 app.config.from_object(Config)
 CORS(app) 
 db.init_app(app)
-bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 limiter = Limiter(key_func=get_remote_address)
 limiter.init_app(app)
