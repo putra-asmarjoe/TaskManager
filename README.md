@@ -70,14 +70,8 @@ This project is a task management application that allows users to create, read,
     #DATABASE_URL=postgresql://postgres:mysecretpassword@localhost/myflaskdb
     ```
 
-5. Initialize the database:
-    ```bash
-    flask db init
-    flask db migrate
-    flask db upgrade
-    ```
 
-6. Start the Flask server:
+5. Start the Flask server:
     ```bash
     flask run
     ```
