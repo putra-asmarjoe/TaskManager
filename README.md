@@ -75,18 +75,17 @@ This project is a task management application that allows users to create, read,
     python3 app.py
     ```
 6. Register New User  
-```bash
-curl -X POST http://127.0.0.1:5000/register \
--H "Content-Type: application/json" \
--d '{
-  "username": "joe",
-  "email": "joe@taskmanager.com",
-  "password": "Password123",
-  "userrole": "admin"
-}'
-
-```
-**Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
+    ```bash
+    curl -X POST http://127.0.0.1:5000/register \
+    -H "Content-Type: application/json" \
+    -d '{
+      "username": "joe",
+      "email": "joe@taskmanager.com",
+      "password": "Password123",
+      "userrole": "admin"
+    }'
+    ```
+####    **Note:** For more details about the backend, please follow this link: https://github.com/putra-asmarjoe/TaskManager/tree/main/flask-backend
 
 ### Frontend Setup
 
