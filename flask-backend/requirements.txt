@@ -2,11 +2,11 @@ Flask
 Flask-SQLAlchemy
 Flask-JWT-Extended
 Flask-Bcrypt
+flask-bcrypt
 Flask-Limiter
 Flask-Migrate 
 Werkzeugg
 marshmallow
 python-dotenv
 flask-cors
-flask-bcrypt
 gunicorn
