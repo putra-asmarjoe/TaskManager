@@ -54,6 +54,7 @@ This project is a task management application that allows users to create, read,
 
 3. Install dependencies:
     ```bash
+    python3 -m pip install --upgrade pip
     pip3 install -r requirements.txt
     ```
 
