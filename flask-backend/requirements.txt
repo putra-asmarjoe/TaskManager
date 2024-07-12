@@ -4,8 +4,8 @@ Flask-JWT-Extended
 Flask-Limiter
 Flask-Migrate 
 sqlalchemy
-markupsafe==2.0.1
-Werkzeug<1
+markupsafe
+Werkzeug
 marshmallow
 python-dotenv
 flask-cors
