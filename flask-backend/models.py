@@ -22,7 +22,7 @@ class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     description = db.Column(db.Text, nullable=False)
-    status_id = db.Column(db.Integer, nullable=False)
+    status_id = db.Column(db.Integer, nullable=False, default=1)
     status = db.Column(db.String(20), nullable=False, default='pending')
     task_history = db.Column(db.Text, nullable=False)
     created_by_id = db.Column(db.Integer, nullable=False)
