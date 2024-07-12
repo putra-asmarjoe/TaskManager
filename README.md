@@ -31,7 +31,10 @@ This project is a task management application that allows users to create, read,
 - Flask-JWT-Extended (for authentication)
 - Rate Limiter
 
-## Setup Instructions
+## K8s Setup Instructions
+
+
+## Manual Setup Instructions
 
 ### Prerequisites
 - Node.js (v14 or later)
@@ -69,12 +72,21 @@ This project is a task management application that allows users to create, read,
     #DATABASE_URL=postgresql://postgres:mysecretpassword@localhost/myflaskdb
     ```
 
-
-5. Start the server:
+5. Initialize the database:
     ```bash
-    python3 app.py
+    flask db init
+    flask db migrate -m "Initial migration."
+    flask db upgrade
     ```
-6. Register New User  
+6. Start the server:
+    ```bash
+    flask run
+    ```
+    or use Gunicorn:
+    ```bash
+    gunicorn --bin 0.0.0.0:5000 app:app
+    ```
+7. Register New User  
     ```bash
     curl -X POST http://127.0.0.1:5000/register \
     -H "Content-Type: application/json" \

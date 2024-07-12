@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./flask-backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - SECRET_KEY=your_secret_key_here
+      - JWT_SECRET_KEY=your_jwt_secret_key_here
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./react-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000/
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rjb9CH5amXb3l1k
+      POSTGRES_DB: taskmgrjoedb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
