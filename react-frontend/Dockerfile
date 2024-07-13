@@ -20,7 +20,7 @@ FROM nginx:alpine
 
 # Copy the build from the previous stage to the Nginx directory
 COPY --from=0 /app/build /usr/share/nginx/html
-
+COPY default.conf /etc/nginx/conf.d/default.conf
 # Expose port 80 to access the application
 EXPOSE 80
 
