@@ -10,8 +10,7 @@ services:
     environment:
       - FLASK_ENV=production
       - FLASK_APP=app.py
-      - SECRET_KEY=your_secret_key_here
-      - JWT_SECRET_KEY=Qyu5y3W2jI6aJO2FIb2D92r5QBXZMsM1xeIeVJo8GA8qJOg7KTjWJurAtph7nUVY
+      - SECRET_KEY=Qyu5y3W2jI6aJO2FIb2D92r5QBXZMsM1xeIeVJo8GA8qJOg7KTjWJurAtph7nUVY
       - JWT_SECRET_KEY=R5fDijg6iXz2eiaMn4AY4XuNoHxXrJy2XI2B9APZ4m5u0v42p41QTJY39fzIxLZf
       - DATABASE_URL=postgresql://postgres:rjb9CH5amXb3l1k@db/taskmgrjoedb
     depends_on:
