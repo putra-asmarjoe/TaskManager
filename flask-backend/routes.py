@@ -1,6 +1,6 @@
 from flask import request, jsonify, current_app, abort
 from app import app, db, limiter
-from models import User, Task
+from models import Userapi, Task
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from datetime import datetime
 from marshmallow import Schema, fields, validates, validate, ValidationError
@@ -59,11 +59,11 @@ def register():
         current_app.logger.warning('Registration failed: Missing fields')
         return jsonify({'message': 'Missing fields'}), 400
 
-    if User.query.filter_by(username=data['username']).first() or User.query.filter_by(email=data['email']).first():
+    if Userapi.query.filter_by(username=data['username']).first() or Userapi.query.filter_by(email=data['email']).first():
         current_app.logger.warning('Registration failed: User already exists')
         return jsonify({'message': 'User already exists'}), 409
 
-    new_user = User(username=data['username'], email=data['email'], userrole=data['userrole'])
+    new_user = Userapi(username=data['username'], email=data['email'], userrole=data['userrole'])
     new_user.set_password(data['password'])
     db.session.add(new_user)
     db.session.commit()
@@ -78,7 +78,7 @@ def login():
         current_app.logger.warning('Login failed: Missing fields')
         return jsonify({'message': 'Missing fields'}), 400
 
-    user = User.query.filter_by(username=data['username']).first()
+    user = Userapi.query.filter_by(username=data['username']).first()
     if user and user.check_password(data['password']):
         access_token = create_access_token(identity={'id': user.id, 'username': user.username, 'userrole': user.userrole})
         current_app.logger.info('User logged in successfully: %s', data['username'])

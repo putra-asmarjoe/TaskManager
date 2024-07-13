@@ -35,13 +35,19 @@ This project is a task management application that allows users to create, read,
 ### Build Backend Image and Run Server Image
  ```bash
  docker build --no-cache -t taskmanager-backend flask-backend/.
- docker run -d -p 5000:5000 --name flask-backend-container taskmanager-backend
+ docker run -d -p 5000:5000 --name taskmanager-backend-container taskmanager-backend
  ```
     
 ### Build Frontend Image and Run Server Image
  ```bash
  docker build --no-cache -t taskmanager-frontend react-frontend/.
  docker run -d -p 3000:80 --name taskmanager-frontend-container taskmanager-frontend
+ ```
+    
+### Run with Docker Compose
+ #### Alternatively, you can use Docker Compose to run both the frontend and backend services, along with a PostgreSQL database, in a single command:
+ ```bash
+ docker-compose -f docker-compose.yml up -d --build
  ```
 
 ## Manual Setup Instructions

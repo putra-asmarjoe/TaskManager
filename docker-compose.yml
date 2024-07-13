@@ -1,25 +1,31 @@
-version: '3.8'
+version: '3'
 
 services:
   backend:
     build:
       context: ./flask-backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile-postgree
     ports:
       - "5000:5000"
     environment:
-      - FLASK_ENV=development
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
       - SECRET_KEY=your_secret_key_here
-      - JWT_SECRET_KEY=your_jwt_secret_key_here
+      - JWT_SECRET_KEY=Qyu5y3W2jI6aJO2FIb2D92r5QBXZMsM1xeIeVJo8GA8qJOg7KTjWJurAtph7nUVY
+      - JWT_SECRET_KEY=R5fDijg6iXz2eiaMn4AY4XuNoHxXrJy2XI2B9APZ4m5u0v42p41QTJY39fzIxLZf
+      - DATABASE_URL=postgresql://postgres:rjb9CH5amXb3l1k@db/taskmgrjoedb
     depends_on:
       - db
+    command: >
+      sh /app/migrate-postgre.sh
+
 
   frontend:
     build:
       context: ./react-frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:80"
     environment:
       - REACT_APP_API_URL=http://localhost:5000/
 
@@ -32,6 +38,7 @@ services:
       POSTGRES_DB: taskmgrjoedb
     volumes:
       - db_data:/var/lib/postgresql/data
+      - .:/docker-entrypoint-initdb.d
 
 volumes:
   db_data:
